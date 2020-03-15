@@ -1,10 +1,22 @@
 module "reflex_aws_detect_cloudwatch_alarms_deleted" {
   source           = "git::https://github.com/cloudmitigator/reflex-engine.git//modules/cwe_lambda"
   rule_name        = "DetectCloudwatchAlarmsDeleted"
-  rule_description = "TODO: Provide rule description"
+  rule_description = "Rule to check when Cloudwatch Alarms are Deleted"
 
   event_pattern = <<PATTERN
-# TODO: Provide event pattern
+{
+  "detail-type": [
+    "AwsApiCall"
+  ],
+  "detail": {
+    "eventSource": [
+      "monitoring.amazonaws.com"
+    ],
+    "eventName": [
+      "DeleteAlarms"
+    ]
+  }
+}
 PATTERN
 
   function_name   = "DetectCloudwatchAlarmsDeleted"
@@ -13,10 +25,10 @@ PATTERN
   lambda_runtime  = "python3.7"
   environment_variable_map = {
     SNS_TOPIC = var.sns_topic_arn,
-    
+
   }
   custom_lambda_policy = <<EOF
-# TODO: Provide required lambda permissions policy
+{}
 EOF
 
 
