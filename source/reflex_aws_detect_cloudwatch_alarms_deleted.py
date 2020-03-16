@@ -28,7 +28,8 @@ class DetectCloudwatchAlarmsDeleted(AWSRule):
 
     def get_remediation_message(self):
         """ Returns a message about the remediation action that occurred """
-        return f"CloudWatch Alarms were deleted: {String.join(self.alarm_names)}"
+        alarms = ', '.join(self.alarm_names)
+        return f"CloudWatch Alarms were deleted: {alarms}"
 
 def lambda_handler(event, _):
     """ Handles the incoming event """
