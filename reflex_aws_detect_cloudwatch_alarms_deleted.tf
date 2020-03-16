@@ -14,7 +14,6 @@ module "reflex_aws_detect_cloudwatch_alarms_deleted" {
   "eventName": [
     "DeleteAlarms"
   ]
-  }
 }
 PATTERN
 
