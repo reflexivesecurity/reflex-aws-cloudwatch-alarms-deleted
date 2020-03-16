@@ -5,15 +5,20 @@ module "reflex_aws_detect_cloudwatch_alarms_deleted" {
 
   event_pattern = <<PATTERN
 {
-  "eventType": [
-    "AwsApiCall"
+  "source": [
+    "aws.monitoring"
   ],
-  "eventSource": [
-    "monitoring.amazonaws.com"
+  "detail-type": [
+    "AWS API Call via CloudTrail"
   ],
-  "eventName": [
-    "DeleteAlarms"
-  ]
+  "detail": {
+    "eventSource": [
+      "monitoring.amazonaws.com"
+    ],
+    "eventName": [
+      "DeleteAlarms"
+    ]
+  }
 }
 PATTERN
 
