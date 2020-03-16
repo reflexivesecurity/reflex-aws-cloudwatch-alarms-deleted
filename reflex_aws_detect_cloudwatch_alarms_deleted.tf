@@ -27,9 +27,6 @@ PATTERN
     SNS_TOPIC = var.sns_topic_arn,
 
   }
-  custom_lambda_policy = <<EOF
-{}
-EOF
 
 
 
