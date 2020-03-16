@@ -15,7 +15,7 @@ class DetectCloudwatchAlarmsDeleted(AWSRule):
 
     def extract_event_data(self, event):
         """ Extract required data from the event """
-        self.alarm_names = event["detail"]["requestParameters"]["alarmNames"]
+        self.alarm_names = event["requestParameters"]["alarmNames"]
 
     def resource_compliant(self):
         """
