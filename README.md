@@ -1,15 +1,16 @@
 # reflex-aws-detect-cloudwatch-alarms-deleted
-TODO: Write a brief description of your rule and what it does.
+
+A Reflex rule for detecting AWS Cloudwatch alarms that are deleted.
 
 ## Usage
-To use this rule either add it to your `reflex.yaml` configuration file:  
+To use this rule either add it to your `reflex.yaml` configuration file:
 ```
 rules:
   - reflex-aws-detect-cloudwatch-alarms-deleted:
       email: "example@example.com"
 ```
 
-or add it directly to your Terraform:  
+or add it directly to your Terraform:
 ```
 ...
 
