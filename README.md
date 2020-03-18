@@ -7,7 +7,7 @@ To use this rule either add it to your `reflex.yaml` configuration file:
 ```
 rules:
   - reflex-aws-cloudwatch-alarms-deleted:
-      email: "example@example.com"
+    version: latest
 ```
 
 or add it directly to your Terraform:
@@ -16,7 +16,6 @@ or add it directly to your Terraform:
 
 module "reflex-aws-cloudwatch-alarms-deleted" {
   source           = "github.com/cloudmitigator/reflex-aws-cloudwatch-alarms-deleted"
-  email            = "example@example.com"
 }
 
 ...
