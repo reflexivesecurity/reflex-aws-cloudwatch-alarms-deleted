@@ -34,7 +34,7 @@ PATTERN
 
 
   queue_name    = "DetectCloudwatchAlarmsDeleted"
-  delay_seconds = 60
+  delay_seconds = 0
 
   target_id = "DetectCloudwatchAlarmsDeleted"
 
