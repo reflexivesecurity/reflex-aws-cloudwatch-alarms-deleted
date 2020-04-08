@@ -24,7 +24,7 @@ PATTERN
 
   function_name   = "DetectCloudwatchAlarmsDeleted"
   source_code_dir = "${path.module}/source"
-  handler         = "reflex_aws_detect_cloudwatch_alarms_deleted.lambda_handler"
+  handler         = "reflex_aws_cloudwatch_alarms_deleted.lambda_handler"
   lambda_runtime  = "python3.7"
   environment_variable_map = {
     SNS_TOPIC = var.sns_topic_arn,
