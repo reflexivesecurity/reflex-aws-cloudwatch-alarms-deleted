@@ -63,6 +63,8 @@ disable=
     no-self-use,
     protected-access,
     too-few-public-methods,
+    unused-argument,
+    unused-import,
     useless-super-delegation,
     # handled by black
     format
