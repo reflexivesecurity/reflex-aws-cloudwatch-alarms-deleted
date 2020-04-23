@@ -1,8 +1,8 @@
 name: Update terraform dependencies
 on:
   schedule:
-    # run every 15 minutes
-    - cron:  '*/15 * * * *'
+    # at 8am PST every day
+    - cron:  '* 16 * * *'
 
 jobs:
   dependabot-terraform:
