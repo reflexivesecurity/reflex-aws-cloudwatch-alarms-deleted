@@ -56,6 +56,7 @@ def assert_reflex_rule_deployed(context):
 
 @when("a Cloudwatch alarm is deleted")
 def delete_alarm(context):
+    create_alarm()
     response = CLOUDWATCH_CLIENT.delete_alarms(
         AlarmNames=[
             f'gherkin-test-{GHERKIN_UUID}'
