@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - add-tests
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine pyaml cloudmitigator-semantic behave boto3
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+    - name: Deploy rule
+      run: |
+        cd tests/acceptance && terraform init && terraform apply -auto-approve
+    - name: Run tests
+      run: |
+        cd tests/acceptance && behave --no-logcapture --no-capture
+    - name: Clean up resources
+      if: ${{ always() }}
+      run: |
+        cd tests/acceptance && terraform destroy -auto-approve
