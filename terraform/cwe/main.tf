@@ -1,5 +1,5 @@
 module "cwe" {
-  source      = "git::https://github.com/cloudmitigator/reflex-engine.git//modules/cwe?ref=v1.0.0"
+  source      = "git::https://github.com/cloudmitigator/reflex-engine.git//modules/cwe?ref=v2.0.0"
   name        = "CloudwatchAlarmsDeleted"
   description = "Rule to check when Cloudwatch Alarms are Deleted"
 
