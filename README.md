@@ -18,7 +18,7 @@ rules:
 or add it directly to your Terraform:
 ```
 module "cloudwatch-alarms-deleted" {
-  source            = "git::https://github.com/cloudmitigator/reflex-aws-cloudwatch-alarms-deleted.git?ref=latest"
+  source            = "git::https://github.com/reflexivesecurity/reflex-aws-cloudwatch-alarms-deleted.git?ref=latest"
   sns_topic_arn     = module.central-sns-topic.arn
   reflex_kms_key_id = module.reflex-kms-key.key_id
 }
@@ -33,4 +33,4 @@ This rule has no configuration options.
 If you are interested in contributing, please review [our contribution guide](https://docs.cloudmitigator.com/about/contributing.html).
 
 ## License
-This Reflex rule is made available under the MPL 2.0 license. For more information view the [LICENSE](https://github.com/cloudmitigator/reflex-aws-cloudwatch-alarms-deleted/blob/master/LICENSE) 
+This Reflex rule is made available under the MPL 2.0 license. For more information view the [LICENSE](https://github.com/reflexivesecurity/reflex-aws-cloudwatch-alarms-deleted/blob/master/LICENSE) 
