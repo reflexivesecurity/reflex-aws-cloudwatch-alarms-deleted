@@ -28,14 +28,16 @@ class DetectCloudwatchAlarmsDeleted(AWSRule):
 
     def get_remediation_message(self):
         """ Returns a message about the remediation action that occurred """
-        alarms = ', '.join(self.alarm_names)
+        alarms = ", ".join(self.alarm_names)
         return f"CloudWatch Alarms were deleted: {alarms}"
+
 
 def lambda_handler(event, _):
     """ Handles the incoming event """
     print(event)
-    if subscription_confirmation.is_subscription_confirmation(event):
-        subscription_confirmation.confirm_subscription(event)
+    event_payload = json.loads(event["Records"][0]["body"])
+    if subscription_confirmation.is_subscription_confirmation(event_payload):
+        subscription_confirmation.confirm_subscription(event_payload)
         return
-    rule = DetectCloudwatchAlarmsDeleted(json.loads(event["Records"][0]["body"]))
+    rule = DetectCloudwatchAlarmsDeleted(event_payload)
     rule.run_compliance_rule()
