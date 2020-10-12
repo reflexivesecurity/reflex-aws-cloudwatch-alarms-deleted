@@ -1,2 +1,2 @@
-reflex-core==1.2.1
+reflex-core==1.2.2
 boto3==1.15.12
