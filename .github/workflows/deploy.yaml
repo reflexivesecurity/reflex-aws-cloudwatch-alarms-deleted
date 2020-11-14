@@ -1,0 +1,20 @@
+name: deploy
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger deploy
+        run: |
+          curl -X POST https://api.github.com/repos/reflexivesecurity/reflex-rule-manifest/dispatches \
+          -H "Accept: application/vnd.github.everest-preview+json" \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          --data '{"event_type": "deploy"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.CLOUDMITIGATOR_GITHUB_PAT }}
